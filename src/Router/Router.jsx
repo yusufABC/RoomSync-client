@@ -7,6 +7,10 @@ import Home from '../Pages/Home';
 import Signup from '../Pages/Signup';
 import SignIn from '../Pages/SignIn';
 import MainLayout from '../Layout/MainLayout';
+import PrivateRoute from '../PrivateRoute';
+import BrowseListing from '../Pages/BrowseListing';
+import MyListing from '../Pages/MyListing';
+import AddToFindRoomMate from '../Pages/AddToFindRoomMate';
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +28,33 @@ export const router = createBrowserRouter([
         {
           path:'signIn',
           Component:SignIn
-        }
+        },
+        {
+          path:'mylisting', 
+
+          element:<PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+
+        },
+        
+        {
+          path:'browselisting', 
+
+          element:<BrowseListing></BrowseListing>
+         
+
+        },
+        
+        {
+          path:'addtofindroommate', 
+
+          element:<PrivateRoute>
+            <AddToFindRoomMate></AddToFindRoomMate>
+          </PrivateRoute>
+
+        },
+
     ]
   },
 ]);
