@@ -5,7 +5,9 @@ import { AuthContext } from './context/AuthContext';
 const PrivateRoute = ({children}) => {
     const{user,loader}=useContext(AuthContext)
     if(loader){
-        return <div>loading....</div>
+        return  <span className="loading loading-bars loading-xl"></span>
+
+        
     }
     if(!user || !user?.email){
        return <Navigate to="/signin"></Navigate>
