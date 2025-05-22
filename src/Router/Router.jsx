@@ -11,6 +11,7 @@ import PrivateRoute from '../PrivateRoute';
 import BrowseListing from '../Pages/BrowseListing';
 import MyListing from '../Pages/MyListing';
 import AddToFindRoomMate from '../Pages/AddToFindRoomMate';
+import Details from '../Pages/Details/Details';
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,14 @@ export const router = createBrowserRouter([
 
           element:<PrivateRoute>
             <AddToFindRoomMate></AddToFindRoomMate>
+          </PrivateRoute>
+
+        },
+        {
+          path:'details', 
+
+          element:<PrivateRoute>
+            <Details></Details>
           </PrivateRoute>
 
         },

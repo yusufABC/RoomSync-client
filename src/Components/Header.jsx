@@ -37,6 +37,11 @@ const Header = () => {
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
                             }>   <ClipboardList /> Browse Listing</NavLink>
                         </li>
+                        <li className="flex">
+                            <NavLink to={'/details'} className={({ isActive }) =>
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
+                            }>   <ClipboardList /> Details</NavLink>
+                        </li>
                         {
 
                             user ?
@@ -44,18 +49,18 @@ const Header = () => {
 
                                     <li className="flex">
                                         <NavLink to={'/mylisting'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
+                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
                                         }><TableProperties />My Listing</NavLink>
                                     </li>
                                     <li className="flex">
                                         <NavLink to={'/addtofindroommate'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
+                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
                                         }> <Handshake />Find Room Mate</NavLink>
                                     </li>
                                 </>
                                 : <li className="flex">
                                     <NavLink to={'/signup'} className={({ isActive }) =>
-                                        `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
+                                        `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
                                     }>Sign Up</NavLink>
                                 </li>
 
