@@ -8,7 +8,7 @@ import Signup from '../Pages/Signup';
 import SignIn from '../Pages/SignIn';
 import MainLayout from '../Layout/MainLayout';
 import PrivateRoute from '../PrivateRoute';
-import BrowseListing from '../Pages/BrowseListing';
+import BrowseListing from '../Pages/BrowseListing/BrowseListing';
 import MyListing from '../Pages/MyListing';
 import AddToFindRoomMate from '../Pages/AddToFindRoomMate';
 import Details from '../Pages/Details/Details';
