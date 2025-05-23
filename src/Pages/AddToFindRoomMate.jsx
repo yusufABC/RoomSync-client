@@ -49,11 +49,11 @@ const AddToFindRoomMate = () => {
             <form onSubmit={handleAddRoomMate} className="space-y-6">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block text-gray-600">Username</label>
-                    <input type="text" name="username"  id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
+                    <input type="text" name="username" value={user.displayName} id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block text-gray-600">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
+                    <input type="email" value={user.email} name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label className="block text-gray-600">Title</label>

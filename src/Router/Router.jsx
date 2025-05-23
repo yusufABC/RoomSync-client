@@ -12,11 +12,15 @@ import BrowseListing from '../Pages/BrowseListing/BrowseListing';
 import MyListing from '../Pages/MyListing';
 import AddToFindRoomMate from '../Pages/AddToFindRoomMate';
 import Details from '../Pages/Details/Details';
+import NotFound from '../Pages/NotFound';
+import UpdatePost from '../Pages/UpdatePost';
 
 export const router = createBrowserRouter([
   {
+    errorElement:<NotFound></NotFound>,
     path: "/",
     Component:MainLayout,
+
     children:[
         {
             index:true,
@@ -62,6 +66,14 @@ export const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
 
+        },
+        {
+          path:'updatepost/:id', 
+
+          element:<PrivateRoute>
+           <UpdatePost></UpdatePost>
+          </PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:3000/listings/${params.id}`)
         },
 
     ]
