@@ -80,10 +80,10 @@ setPost(p => p.filter(item => item._id !== list._id));
          <tbody>
             {post.map((list, index) => (
               <tr key={index} className="text-center">
-                <td className="p-5 text-center border  border-blue-200">{list.rest.title}</td>
-                <td className="p-5 text-center border  border-blue-200">{list.rest.location}</td>
+                <td className="p-5 text-center border  border-blue-200">{list.title}</td>
+                <td className="p-5 text-center border  border-blue-200">{list.location}</td>
                 <td className="p-5 text-center border  border-blue-200">{list.rentamount}</td>
-                <td className="p-5 text-center border  border-blue-200">{list.rest.availability}</td>
+                <td className="p-5 text-center border  border-blue-200">{list.availability}</td>
                 <td className="p-5 text-center border flex justify-center gap-3  border-blue-200">
                   <button
                      onClick={() => navigate(`/updatepost/${list._id}`)}

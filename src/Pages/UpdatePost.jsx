@@ -4,7 +4,9 @@ import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 import { CircleFadingPlus } from 'lucide-react';
 const UpdatePost = () => {
-    const { _id, rentamount, roomtype, rest } = useLoaderData()
+ const loadedPost = useLoaderData();
+const { _id, title, location, rentamount, roomtype, lifestyle, description, contact, availability } = loadedPost;
+
     const { user } = use(AuthContext)
     const handleUpdateRoomMate = e => {
         e.preventDefault()
@@ -32,7 +34,15 @@ const UpdatePost = () => {
                         draggable: true
                     });
                 }
+                else {
+      Swal.fire({
+        title: `No changes were made.`,
+        icon: "info"
+      });
+    }
+                
             })
+            
 
     }
     return (
@@ -41,19 +51,19 @@ const UpdatePost = () => {
             <form onSubmit={handleUpdateRoomMate} className="space-y-6">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block text-gray-600">Username</label>
-                    <input type="text" name="username" value={user.displayName} id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
+                    <input type="text" name="username" value={user.displayName} readOnly id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block text-gray-600">Email</label>
-                    <input type="email" value={user.email} name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
+                    <input type="email" value={user.email} name="email" id="email" placeholder="Email" readOnly className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label className="block text-gray-600">Title</label>
-                    <input type="text" name="title" defaultValue={rest.title} placeholder=" (e.g., 'Looking for a roommate in NYC')" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
+                    <input type="text" name="title" defaultValue={title} placeholder=" (e.g., 'Looking for a roommate in NYC')" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label className="block text-gray-600">Location</label>
-                    <input type="text" name="location" defaultValue={rest.location} placeholder="Location" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
+                    <input type="text" name="location" defaultValue={location} placeholder="Location" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label className="block text-gray-600">Rent Amount</label>
@@ -69,7 +79,7 @@ const UpdatePost = () => {
                     <input
                         type="text"
                         name="lifestyle"
-                        defaultValue={rest.lifestyle}
+                        defaultValue={lifestyle}
                         placeholder="(Pets, Smoking, Night Owl, etc.)" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600"
                     />
                 </div>
@@ -78,7 +88,7 @@ const UpdatePost = () => {
                     <label className="block text-gray-600">Description</label>
 
                     <textarea
-                        defaultValue={rest.description}
+                        defaultValue={description}
                         name="description"
                         placeholder="Describe the room, environment, and expectations" className="w-full px-4 py-3 rounded-md border border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600"
                         rows="4"
@@ -87,7 +97,7 @@ const UpdatePost = () => {
                 <div className="space-y-1 text-sm">
                     <label className="block text-gray-600">Contact Info</label>
                     <input
-                        defaultValue={rest.contact}
+                        defaultValue={contact}
                         type="text"
                         name="contact"
                         placeholder="Phone or social media link"
@@ -98,7 +108,7 @@ const UpdatePost = () => {
                 <div className="space-y-1 text-sm">
                     <label className="block text-gray-600">Availability</label>
                     <select
-                        defaultValue={rest.availability}
+                        defaultValue={availability}
                         name="availability"
                         className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-orange-600"
                     >

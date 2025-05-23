@@ -30,10 +30,10 @@ const BrowseListing = () => {
          <tbody>
             {listings.map((list, index) => (
               <tr key={index} className="text-center">
-                <td className="px-4 py-2 border  border-blue-200">{list.rest.title}</td>
-                <td className="px-4 py-2 border  border-blue-200">{list.rest.location}</td>
+                <td className="px-4 py-2 border  border-blue-200">{list.title}</td>
+                <td className="px-4 py-2 border  border-blue-200">{list.location}</td>
                 <td className="px-4 py-2 border  border-blue-200">{list.rentamount}</td>
-                <td className="px-4 py-2 border  border-blue-200">{list.rest.availability}</td>
+                <td className="px-4 py-2 border  border-blue-200">{list.availability}</td>
                 <td className="px-4 py-2 border  border-blue-200">
                   <button
                     onClick={() => navigate(`/details`)}

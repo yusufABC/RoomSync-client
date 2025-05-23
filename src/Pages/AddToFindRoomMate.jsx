@@ -10,12 +10,10 @@ const AddToFindRoomMate = () => {
         e.preventDefault()
         const form = e.target
         const formData = new FormData(form)
-        const { rentamount,roomtype, ...rest } = Object.fromEntries(formData.entries())
+        const allData = Object.fromEntries(formData.entries())
 
             const userRoomData={
-                rentamount,
-                roomtype,
-                rest
+            ...allData
             }
 
         // send to db
