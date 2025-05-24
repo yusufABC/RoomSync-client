@@ -51,7 +51,7 @@ const Signup = () => {
 
 
                 // save in the database 
-                fetch('http://localhost:3000/users', {
+                fetch('https://assignment-10-server-sigma.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

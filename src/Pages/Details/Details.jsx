@@ -4,7 +4,7 @@ import DetailsCard from './DetailsCard';
 const Details = () => {
     const [listings, setListings] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3000/listings')
+        fetch('https://assignment-10-server-sigma.vercel.app/listings')
             .then(res => res.json())
             .then(data => {
                 setListings(data)

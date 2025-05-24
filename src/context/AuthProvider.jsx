@@ -7,7 +7,7 @@ const AuthProvider = ({children}) => {
     const [loader,setLoader]=useState(true)
    const [post,setPost]=useState(0)
    const [totalLikesCount,setTotalLikesCount]=useState(0)
-  const [theme,setTheme]=useState('dark')
+  const [theme,setTheme]=useState('light')
 
   const toggleTheme=()=>{
     setTheme((curr)=>(curr==='light'?'dark':'light'))
@@ -63,7 +63,7 @@ const AuthProvider = ({children}) => {
 
 
 useEffect(() => {
-  fetch('http://localhost:3000/listings')
+  fetch('https://assignment-10-server-sigma.vercel.app/listings')
     .then(res => res.json())
     .then(data => {
       const total = data.reduce((acc, curr) => acc + (curr.likeCount || 0), 0);

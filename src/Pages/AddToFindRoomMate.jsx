@@ -17,7 +17,7 @@ const AddToFindRoomMate = () => {
             }
 
         // send to db
-                      fetch('http://localhost:3000/listings', {
+                      fetch('https://assignment-10-server-sigma.vercel.app/listings', {
                                     method: 'POST',
                                     headers: {
                                         'content-type': 'application/json'

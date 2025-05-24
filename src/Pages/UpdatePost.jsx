@@ -16,7 +16,7 @@ const { _id, title, location, rentamount, roomtype, lifestyle, description, cont
         console.log(updatePost)
 
         // savve updated data in the db 
-        fetch(`http://localhost:3000/listings/${_id}`, {
+        fetch(`https://assignment-10-server-sigma.vercel.app/listings/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -11,7 +11,7 @@ const MyListing = () => {
     useEffect(() => {
     if (!user?.email) return;
 
-  fetch(`http://localhost:3000/listings/users/${user.email}`)
+  fetch(`https://assignment-10-server-sigma.vercel.app/listings/users/${user.email}`)
 
       .then(res => res.json())
       .then(data => setPost(data));
@@ -37,7 +37,7 @@ swalWithBootstrapButtons.fire({
   reverseButtons: true
 }).then((result) => {
   if (result.isConfirmed) {
-    fetch(`http://localhost:3000/listings/${list._id}`,{
+    fetch(`https://assignment-10-server-sigma.vercel.app/listings/${list._id}`,{
         method:'DELETE'
     })
     .then(res=>res.json())

@@ -18,7 +18,7 @@ const DetailsCard = ({list}) => {
 
 
     useEffect(() => {
-    fetch(`http://localhost:3000/listings/${id}`)
+    fetch(`https://assignment-10-server-sigma.vercel.app/listings/${id}`)
       .then(res => res.json())
       .then(data => {
         setPost(data);
@@ -38,7 +38,7 @@ if(liked) return
 return
   }
 
-  fetch(`http://localhost:3000/listings/${list._id}/like`,{
+  fetch(`https://assignment-10-server-sigma.vercel.app/listings/${list._id}/like`,{
     method:"PATCH"
   })
   .then(res=>res.json())

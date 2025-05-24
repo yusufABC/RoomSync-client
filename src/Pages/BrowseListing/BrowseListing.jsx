@@ -7,7 +7,7 @@ const BrowseListing = () => {
       const [listings, setListings] = useState([]);
         const navigate = useNavigate();
  useEffect(() => {
-        fetch('http://localhost:3000/listings')
+        fetch('https://assignment-10-server-sigma.vercel.app/listings')
             .then(res => res.json())
             .then(data => {
                 setListings(data)
