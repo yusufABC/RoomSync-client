@@ -30,11 +30,11 @@ const Hero = () => {
       className="w-xl rounded-lg"
     />
     <div>
-      <h1 className="text-5xl font-bold">Searching For Room Mate ?</h1>
+      <h1 className=" text-xl md:text-5xl font-bold">Searching For Room Mate ?</h1>
       <p className="py-6  text-xl">
        Meet Room Sync — the smarter way to find your perfect roommate. Whether you're moving for school, work, or a fresh start, we help you match, connect, and move in with confidence.
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      <button className="btn bg-orange-500 text-white">Get Started</button>
     </div>
   </div>
 
@@ -76,13 +76,13 @@ const Hero = () => {
       className="w-xl rounded-lg"
     />
     <div>
-      <h1 className="text-5xl font-bold">Join a Growing Community, Backed by Support</h1>
+      <h1 className="text-xl md:text-5xl font-bold">Join a Growing Community, Backed by Support</h1>
       <p className="py-6  text-xl">
     Be part of a trusted network of thousands actively looking for roommates. Got questions? Our support team is here for you — anytime, anywhere.
 
 
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      <button className="btn bg-orange-400 text-black">Get Started</button>
     </div>
   </div>
 

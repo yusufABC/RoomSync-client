@@ -12,6 +12,7 @@ const Header = () => {
 
     console.log(user)
     const navigate = useNavigate()
+    const [menuOpen, setMenuOpen] = useState(false);
     if (loader) {
         return <div>loading....</div>
     }
@@ -110,13 +111,39 @@ const Header = () => {
 
                 </div>
 
-                <button className="p-4 lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-gray-800">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+               <button onClick={() => setMenuOpen(!menuOpen)} className="p-4 lg:hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-gray-800">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
 
             </div>
+
+
+            {menuOpen && (
+  <div className="lg:hidden px-4 pt-2 pb-4 space-y-2 bg-white text-black shadow-md z-50">
+    <NavLink to="/" className="block" onClick={() => setMenuOpen(false)}>Home</NavLink>
+    <NavLink to="/browselisting" className="block" onClick={() => setMenuOpen(false)}>Browse Listing</NavLink>
+    <NavLink to="/details" className="block" onClick={() => setMenuOpen(false)}>Details</NavLink>
+    {user && (
+      <>
+        <NavLink to="/mylisting" className="block" onClick={() => setMenuOpen(false)}>My Listing</NavLink>
+        <NavLink to="/addtofindroommate" className="block" onClick={() => setMenuOpen(false)}>Find Room Mate</NavLink>
+      </>
+    )}
+    {!user && (
+      <NavLink to="/signup" className="block" onClick={() => setMenuOpen(false)}>Sign Up</NavLink>
+    )}
+    <button  onClick={toggleTheme} className="block">
+      {theme === 'light' ? 'Switch to Dark 🌙' : 'Switch to Light 🌞'}
+    </button>
+    {user ? (
+      <button onClick={handleSignOut} className="block">Sign Out</button>
+    ) : (
+      <button onClick={() => { navigate("/signup"); setMenuOpen(false); }} className="block">Sign Up</button>
+    )}
+  </div>
+)}
         </header>
     );
 };
