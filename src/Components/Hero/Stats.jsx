@@ -11,7 +11,7 @@ const Stats = () => {
     </p>
   </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 text-black">
     <div className="card bg-base-100 shadow-md border">
       <div className="card-body">
         <h2 className="card-title">ID-Verified Users</h2>

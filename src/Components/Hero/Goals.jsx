@@ -33,7 +33,7 @@ const MatchVibeSection = () => {
         </Fade>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
           <Slide direction="left" cascade damping={0.2}>
             <div className="card bg-base-100 shadow-lg border">
               <div className="card-body">
@@ -87,7 +87,7 @@ const MatchVibeSection = () => {
         </Fade>
 
       {/* card section text */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 text-black">
           <Slide direction="right" cascade damping={0.2}>
             <div className="card bg-base-100 shadow-lg border">
               <div className="card-body">

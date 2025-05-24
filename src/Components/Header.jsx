@@ -8,6 +8,7 @@ import { TableProperties } from 'lucide-react';
 const Header = () => {
       
     const { handleSignOut, user, loader } = useContext(AuthContext)
+      const { theme, toggleTheme } = use(AuthContext);
 
     console.log(user)
     const navigate = useNavigate()
@@ -31,17 +32,17 @@ const Header = () => {
                     <ul className="items-center  hidden space-x-3 lg:flex">
                         <li className="flex">
                         <NavLink to={'/'} className={({ isActive }) =>
-                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                             }>  <House /> Home</NavLink>
                         </li>
                         <li className="flex">
                             <NavLink to={'/browselisting'} className={({ isActive }) =>
-                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                             }>   <ClipboardList /> Browse Listing</NavLink>
                         </li>
                         <li className="flex">
                             <NavLink to={'/details'} className={({ isActive }) =>
-                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                             }>   <ClipboardList /> Details</NavLink>
                         </li>
                         {
@@ -51,22 +52,31 @@ const Header = () => {
 
                                     <li className="flex">
                                         <NavLink to={'/mylisting'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
+                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                                         }><TableProperties />My Listing</NavLink>
                                     </li>
                                     <li className="flex">
                                         <NavLink to={'/addtofindroommate'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
+                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                                         }> <Handshake />Find Room Mate</NavLink>
                                     </li>
                                 </>
                                 : <li className="flex">
                                     <NavLink to={'/signup'} className={({ isActive }) =>
-                                        `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
+                                        `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                                     }>Sign Up</NavLink>
                                 </li>
 
                         }
+
+                            <label className="flex items-center gap-2 text-white">
+                                <span>
+                                    {theme === 'light' ? '🌞' : '🌙'}
+                                </span>
+
+                        <input type="checkbox"   onChange={toggleTheme} defaultChecked className={`toggle toggle-sm ${theme==='light'?'text-black':'text-white'}`}/>
+
+                            </label>
 
 
 
