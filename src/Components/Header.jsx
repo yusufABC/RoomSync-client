@@ -1,12 +1,14 @@
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
-import { useContext } from 'react';
+import { use, useContext, useEffect, useState } from 'react';
 import { Handshake, House } from 'lucide-react';
 import { ClipboardList } from 'lucide-react';
 import { TableProperties } from 'lucide-react';
 
 const Header = () => {
+      
     const { handleSignOut, user, loader } = useContext(AuthContext)
+
     console.log(user)
     const navigate = useNavigate()
     if (loader) {
@@ -29,17 +31,17 @@ const Header = () => {
                     <ul className="items-center  hidden space-x-3 lg:flex">
                         <li className="flex">
                         <NavLink to={'/'} className={({ isActive }) =>
-                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
                             }>  <House /> Home</NavLink>
                         </li>
                         <li className="flex">
                             <NavLink to={'/browselisting'} className={({ isActive }) =>
-                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
                             }>   <ClipboardList /> Browse Listing</NavLink>
                         </li>
                         <li className="flex">
                             <NavLink to={'/details'} className={({ isActive }) =>
-                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'bg-gray-200 text-primary font-semibold' : ''}`
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
                             }>   <ClipboardList /> Details</NavLink>
                         </li>
                         {
@@ -49,18 +51,18 @@ const Header = () => {
 
                                     <li className="flex">
                                         <NavLink to={'/mylisting'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
+                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
                                         }><TableProperties />My Listing</NavLink>
                                     </li>
                                     <li className="flex">
                                         <NavLink to={'/addtofindroommate'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
+                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
                                         }> <Handshake />Find Room Mate</NavLink>
                                     </li>
                                 </>
                                 : <li className="flex">
                                     <NavLink to={'/signup'} className={({ isActive }) =>
-                                        `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-primary font-semibold' : ''}`
+                                        `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? ' text-orange-400 font-semibold' : ''}`
                                     }>Sign Up</NavLink>
                                 </li>
 
@@ -88,7 +90,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        {/* Hover content */}
+                 
                         <div className="absolute left-1/2 top-full mt-2 transform -translate-x-1/2 bg-base-200 p-2 rounded shadow text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 w-max">
                             <p><strong>Name:</strong> {user?.displayName || 'Unknown'}</p>
                             <p><strong>Email:</strong> {user?.email || 'N/A'}</p>

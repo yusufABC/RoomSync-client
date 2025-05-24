@@ -19,16 +19,16 @@ const Stats = () => {
       </div>
     </div>
 
-    <div className="card bg-blue-100 shadow-md border">
+    <div className="card bg-blue-200 shadow-md border">
       <div className="card-body">
         <h2 className="card-title text-blue-500">Report & Block</h2>
         <p>Block or report anyone instantly — your safety is always in your hands.</p>
       </div>
     </div>
 
-    <div className="card bg-blue-100 shadow-md border">
+    <div className="card bg-orange-200 shadow-md border">
       <div className="card-body">
-        <h2 className="card-title text-blue-500">Profile Review</h2>
+        <h2 className="card-title text-orange-500">Profile Review</h2>
         <p>All profiles are reviewed for authenticity and completeness before going live.</p>
       </div>
     </div>

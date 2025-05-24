@@ -1,18 +1,59 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { ThumbsUp } from 'lucide-react';
+import { useParams } from 'react-router';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../context/AuthContext';
 const DetailsCard = ({list}) => {
+  const [liked,setLiked]=useState(false)
+  const {user,setPost}=use(AuthContext)
+  const [likesCount,setLikesCount]=useState(0)
+//  const [totalLikes, setTotalLikes] = useState(0)
+
   console.log(list)
-     const [liked, setLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(0);
+  console.log(user)
+    
+
+  const { id } = useParams()
+
+
+
+    useEffect(() => {
+    fetch(`http://localhost:3000/listings/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        setPost(data);
+        setLikesCount(data.likeCount || 0);
+      });
+  }, [id,setPost]);
+
         const handleLike = () => {
-    if (liked) {
-      setLikesCount(likesCount -1);
+  if(list.email===user.email){
+    Swal.fire({
+  icon: "error",
+  title: "You Cannot Like Your Own POst",
+  texta: "Something went wrong!",
+  footer: '<a href="#">Why do I have this issue?</a>'
+}); 
+if(liked) return
+return
+  }
+
+  fetch(`http://localhost:3000/listings/${list._id}/like`,{
+    method:"PATCH"
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    if (data.modifiedCount){
+    setLikesCount(p=>p+1)
+  // setLikesCount(p => p + 1); 
+  setLiked(true);
+
+
     }
-     else {
-      setLikesCount(likesCount + 1);
-    }
-    setLiked(!liked);
-  };
+  })
+
+
+  }
 
 
     return (
@@ -27,13 +68,21 @@ const DetailsCard = ({list}) => {
             <p className=" text-slate-600">🚀Availability: {list.availability}</p>
         <p className=" text-slate-600">🚀Posted by: {list.username} ({list.email})</p>
         <p className=" text-slate-600 mt-2">🚀{list.description}</p>
-        <p className=" text-blue-600 mt-1">Contact: {list.contact}</p>
-               </div>
         
-        <button   onClick={handleLike}  className={`m-4  rounded `}>
+               </div >
+        
+
+        <div className='flex justify-between'>
+
+        <button   onClick={handleLike}  className=''>
 
              {liked ?  <ThumbsUp color='red' /> :  <ThumbsUp color='gray' />} ({likesCount})
         </button>
+        <button className='bg-orange-400 text-white btn'> Likes: {likesCount}</button>
+        </div>
+        {
+          liked ? <p className=" text-blue-600 mt-1">Contact: {list.contact}</p>:""
+        }
         </div>
     );
 };

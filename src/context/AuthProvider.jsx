@@ -5,7 +5,16 @@ import { auth } from '../firebase.init';
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
     const [loader,setLoader]=useState(true)
-   
+   const [post,setPost]=useState(0)
+   const [totalLikesCount,setTotalLikesCount]=useState(0)
+  const [theme,setTheme]=useState('dark')
+
+  const toggleTheme=()=>{
+    setTheme((curr)=>(curr==='light'?'dark':'light'))
+  }
+
+
+
     const createUser=(email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password)
     }
@@ -31,7 +40,13 @@ const AuthProvider = ({children}) => {
      setUser,
      loader,
      signInUser,
-     handleSignOut
+     handleSignOut,
+     post,
+     setPost,
+     totalLikesCount,
+     setTotalLikesCount,
+     theme,
+     toggleTheme
     }
 
 
@@ -45,6 +60,18 @@ const AuthProvider = ({children}) => {
             unsubscribe()
         }
     },[])
+
+
+useEffect(() => {
+  fetch('http://localhost:3000/listings')
+    .then(res => res.json())
+    .then(data => {
+      const total = data.reduce((acc, curr) => acc + (curr.likeCount || 0), 0);
+      setTotalLikesCount(total);
+    })
+
+}, []);
+
 return (
   <AuthContext.Provider value={userInfo}>
     {children}
