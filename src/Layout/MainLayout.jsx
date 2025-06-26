@@ -7,10 +7,10 @@ import { AuthContext } from '../context/AuthContext';
 const MainLayout = () => {
     const {theme}=use(AuthContext)
     return (
-        <div  id={theme } className='min-h-screen'>
+        <div  id={theme} className='min-h-screen'>
+            <Header></Header>
             <div className={`max-w-11/12 mx-auto ${ theme === 'dark' ? 'text-white' : 'text-black' }`} >
 
-            <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
             </div>

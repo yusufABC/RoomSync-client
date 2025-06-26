@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
-import { use, useContext, useEffect, useState } from 'react';
+import { use, useContext,  useState } from 'react';
 import { Handshake, House } from 'lucide-react';
 import { ClipboardList } from 'lucide-react';
 import { TableProperties } from 'lucide-react';
@@ -18,7 +18,7 @@ const Header = () => {
     }
 
     return (
-        <header className="p-4 text-gray-800">
+        <header className="sticky top-0 z-50 p-4 backdrop-blur-xs text-gray-800">
             <div className="container flex items-center justify-between h-16 mx-auto">
                 <div className="flex">
                     <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center">
