@@ -1,7 +1,6 @@
 import { FaUserAlt, FaDollarSign } from 'react-icons/fa'
 import { BsFillCartPlusFill, BsFillHouseDoorFill } from 'react-icons/bs'
 import { useEffect, useState } from 'react'
-import { data } from 'react-router'
 
 const AdminStatistics = () => {
       const [listings, setListings] = useState([])

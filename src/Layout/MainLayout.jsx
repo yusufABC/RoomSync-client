@@ -12,7 +12,8 @@ const MainLayout = () => {
             <div className={`max-w-11/12 mx-auto ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                 <Outlet />
             </div>
-            <Footer className={`${theme === 'dark' ? 'text-white' : 'text-black'}`} />
+           <Footer className={`${theme === 'dark' ? 'bg-neutral-900 text-white' : 'text-black'}`} />
+
         </div>
     );
 };
