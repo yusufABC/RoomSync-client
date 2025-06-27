@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carous
 const Hero = () => {
     return (
       
-       <section className="h-[80vh] bg-gray-50 text-black my-10 rounded-4xl">
+       <section className="h-[70vh] bg-gray-50 text-black my-10 rounded-4xl">
             <Carousel
                 autoPlay={true}
                 infiniteLoop={true}

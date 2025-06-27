@@ -5,17 +5,26 @@ import Lottie from 'lottie-react';
 
 const MatchVibeSection = () => {
   return (
-    <>
+    <section id='goals' className='my-15'>
     
-        <h2 className='text-4xl text-center my-30'>Our App's Key Features</h2>
+            
+       
+           <div className='text-5xl font-bold mb-6 text-gray-100  text-center'>Our App's Key Features</div>
+           
+
+            <div className=' text-3xl font-bold mb-6 text-gray-500  text-center'>Our App's Key Features</div>
+
       <div className="my-20 px-4 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
 
      {/* use type writter */}
       <div className="w-full lg:w-1/2">
+      <div>
+        
+      </div>
         <Fade direction="down">
           <h2 className="text-4xl font-bold mb-4">
               <span className="text-purple-600">More Than a Match: </span>
-             <span className="text-gray-800">
+             <span className="text-gray-800 min-h-[48px] h-[48px] flex items-center overflow-hidden">
         <Typewriter
           words={['Feel at Home', 'Connect Naturally', 'Build Bonds']}
           loop={true}
@@ -69,7 +78,7 @@ const MatchVibeSection = () => {
         <Fade direction="right">
           <h2 className="text-4xl font-bold mb-4">
             <span className="text-orange-500">Roommate Goals: </span>
-            <span className="text-gray-800">
+            <span className="text-gray-800 min-h-[48px] h-[48px] flex items-center overflow-hidden">
               <Typewriter
                 words={['Match Your Vibe', 'Live in Harmony', 'Find Your People']}
                 loop={true}
@@ -120,7 +129,7 @@ const MatchVibeSection = () => {
         </div>
       </div>
     </div>
-    </>
+    </section>
   );
 };
 

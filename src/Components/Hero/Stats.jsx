@@ -2,10 +2,12 @@ import React from 'react';
 
 const Stats = () => {
     return (
-        <div>
-            <div className="my-10 px-4">
-  <div className="text-center mb-10">
-    <h2 className="text-4xl font-bold">Verified Profiles & Safety</h2>
+        <div className='my-15'>
+            <div className=" px-4">
+  <div id='verify' className="text-center mb-10">
+<div className='text-5xl font-bold mb-6 text-gray-100  text-center'>Verified Profiles & Safety</div>
+    <h2 className="text-3xl font-bold mb-6 text-gray-500  text-center">Verified Profiles & Safety</h2>
+
     <p className="text-gray-600 mt-2 max-w-xl mx-auto">
       Room Sync puts your safety first. We verify user identities and give you tools to report, block, and connect with confidence.
     </p>

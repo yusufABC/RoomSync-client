@@ -39,9 +39,9 @@ const Header = () => {
                         <li className="flex">
                             <NavLink to={'/browselisting'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
-                            }>   <ClipboardList /> Browse Listing</NavLink>
+                            }>   <Handshake /> Browse Listing</NavLink>
                         </li>
-                        <li className="flex">
+                      <li className="flex">
                             <NavLink to={'/details'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
                             }>   <ClipboardList /> Details</NavLink>
@@ -52,15 +52,11 @@ const Header = () => {
                                 <>
 
                                     <li className="flex">
-                                        <NavLink to={'/mylisting'} className={({ isActive }) =>
+                                        <NavLink to={'/dashboard'} className={({ isActive }) =>
                                             `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
-                                        }><TableProperties />My Listing</NavLink>
+                                        }><TableProperties />Dashboard</NavLink>
                                     </li>
-                                    <li className="flex">
-                                        <NavLink to={'/addtofindroommate'} className={({ isActive }) =>
-                                            `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-orange-400' : theme === 'dark' ? 'text-white' : 'text-black'}`
-                                        }> <Handshake />Find Room Mate</NavLink>
-                                    </li>
+                             
                                 </>
                                 : <li className="flex">
                                     <NavLink to={'/signup'} className={({ isActive }) =>

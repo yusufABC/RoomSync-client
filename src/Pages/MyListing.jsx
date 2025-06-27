@@ -78,29 +78,39 @@ setPost(p => p.filter(item => item._id !== list._id));
                 </tr>
             </thead>
          <tbody>
-            {post.map((list, index) => (
-              <tr key={index} className="text-center">
-                <td className="p-5 text-center border  border-blue-200">{list.title}</td>
-                <td className="p-5 text-center border  border-blue-200">{list.location}</td>
-                <td className="p-5 text-center border  border-blue-200">{list.rentamount}</td>
-                <td className="p-5 text-center border  border-blue-200">{list.availability}</td>
-                <td className="p-5 text-center border flex justify-center gap-3  border-blue-200">
-                  <button
-                     onClick={() => navigate(`/updatepost/${list._id}`)}
-                    className="text-blue-500 hover:text-gray-600 px-3 py-1 rounded"
-                  >
-                   <NotebookPen />
-                  </button>
-                  <button
-                   onClick={()=>handleDelete(list)}
-                    className="text-blue-500 hover:text-gray-600 px-3 py-1 rounded"
-                  >
-                 <UserX />
-                  </button>
-             
-                </td>
-              </tr>
-            ))}
+        {post.length > 0 ? (
+  <>
+    {post.map((list, index) => (
+      <tr key={index} className="text-center">
+        <td className="p-5 text-center border border-blue-200">{list.title}</td>
+        <td className="p-5 text-center border border-blue-200">{list.location}</td>
+        <td className="p-5 text-center border border-blue-200">{list.rentamount}</td>
+        <td className="p-5 text-center border border-blue-200">{list.availability}</td>
+        <td className="p-5 text-center border border-blue-200 flex justify-center gap-3">
+          <button
+            onClick={() => navigate(`/updatepost/${list._id}`)}
+            className="text-blue-500 hover:text-gray-600 px-3 py-1 rounded"
+          >
+            <NotebookPen />
+          </button>
+          <button
+            onClick={() => handleDelete(list)}
+            className="text-blue-500 hover:text-gray-600 px-3 py-1 rounded"
+          >
+            <UserX />
+          </button>
+        </td>
+      </tr>
+    ))}
+  </>
+) : (
+  <tr>
+    <td colSpan="5" className="p-5 text-center text-gray-500">
+       Add Your Post,No post available.
+    </td>
+  </tr>
+)}
+
           </tbody>
          </table>
         </div>

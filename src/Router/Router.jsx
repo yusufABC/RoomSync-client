@@ -14,6 +14,8 @@ import AddToFindRoomMate from '../Pages/AddToFindRoomMate';
 import Details from '../Pages/Details/Details';
 import NotFound from '../Pages/NotFound';
 import UpdatePost from '../Pages/UpdatePost';
+import DashboardLayout from '../Layout/DashboardLayout';
+import Statistics from '../Components/Statistics/Statistics';
 
 export const router = createBrowserRouter([
   {
@@ -50,34 +52,44 @@ export const router = createBrowserRouter([
          
 
         },
+            {
+      path: 'details',
+      element: <PrivateRoute><Details /></PrivateRoute>
+    },
         
-        {
-          path:'addtofindroommate', 
 
-          element:<PrivateRoute>
-            <AddToFindRoomMate></AddToFindRoomMate>
-          </PrivateRoute>
-
-        },
-        {
-          path:'details', 
-
-          element:<PrivateRoute>
-            <Details></Details>
-          </PrivateRoute>
-
-        },
-        {
-          path:'updatepost/:id', 
-          
-          loader:({params})=>fetch(`https://assignment-10-server-sigma.vercel.app/listings/${params.id}`),
-          element:<PrivateRoute>
-           <UpdatePost></UpdatePost>
-          </PrivateRoute>,
-        },
 
     ]
   },
+
+
+{
+  path: '/dashboard',
+  element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+  children: [
+    {
+      index: true,
+      element: <PrivateRoute><Statistics /></PrivateRoute>
+    },
+    {
+      path: 'mylisting',
+      element: <PrivateRoute><MyListing /></PrivateRoute>
+    },
+    {
+      path: 'addtofindroommate',
+      element: <PrivateRoute><AddToFindRoomMate /></PrivateRoute>
+    },
+    {
+      path: 'details',
+      element: <PrivateRoute><Details /></PrivateRoute>
+    },
+    {
+      path: 'updatepost/:id',
+      loader: ({ params }) => fetch(`https://assignment-10-server-sigma.vercel.app/listings/${params.id}`),
+      element: <PrivateRoute><UpdatePost /></PrivateRoute>
+    }
+  ]
+}
 ]);
 
 
